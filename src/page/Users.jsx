@@ -15,26 +15,21 @@ const transactionsArray=[
 const UsersManagement = () => {
     const {isLoading, data} = useGetUsers()
   
-
-    if(isLoading){
+     if(isLoading){
         console.log('...loading')
         return <div>Loading...</div>
       }
-     
-    
      const reassignedData= data?.data?.map((items)=>{
         return{
          col3: items.id,
-         col1:items.first_name + ' ' + items.last_name,
+         col1:items.first_name + '' + items.last_name,
          col2:items.phone,
         }  
       })
        console.log(reassignedData)
               
-    return ( 
-      
+    return (  
         <div>
-          
             <PlainList data={reassignedData} title="All users"/>
         </div>
       
